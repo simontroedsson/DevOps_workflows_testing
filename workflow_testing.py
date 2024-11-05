@@ -1,6 +1,6 @@
-i = 0
-while i<10:
-    if 1==1:
-     i+=1
+def inc(x):
+    return x + 1
 
-print(i)
+
+def test_answer():
+    assert inc(3) == 5

@@ -11,18 +11,18 @@ jobs:
 
   build:
     env:
-      username: ${{secrets.DOCKER_simon_USERNAME}}
-      password: ${{secrets.DOCKER_simon_PASSWORD}}
+      docker_username: ${{secrets.DOCKER_simon_USERNAME}}
+      docker_password: ${{secrets.DOCKER_simon_PASSWORD}}
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
     - name: Log in to Docker Hub
-      uses: docker/login-action@v2
+      uses: docker/login-action@v3
       with:
-        username: $username
-        password: $password
+        username: $docker_username
+        password: $docker_password
     - name: Build the Docker image
       run: docker build -t simontroedsson/demo:latest .
     - name: Push image to dockerhub

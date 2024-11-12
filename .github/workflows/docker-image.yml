@@ -19,4 +19,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build -t simontroedsson/pushimage .
+      run: docker build -t simontroedsson/demo .
+    - name: login to dockerhub
+      run: docker login -u $username -p $password
+    - name: Push image to dockerhub
+      run: docker push simontroedsson/demo:test_image

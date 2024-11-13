@@ -26,11 +26,12 @@ env:
 
 jobs:
   test:
+    if: ${{ github.event.inputs.run_test_job == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     - name: test
-      run: echo test
+      run: echo "test körs"
   
   build_deploy_image:
     runs-on: ubuntu-latest
